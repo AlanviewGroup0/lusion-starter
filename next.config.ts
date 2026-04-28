@@ -5,10 +5,6 @@ const nextConfig: NextConfig = {
   images: {
     domains: ['images.unsplash.com', 'picsum.photos'],
   },
-  // Trigger redeploy
-  env: {
-    DEPLOY_ID: '2',
-  },
 };
 
 export default nextConfig;
