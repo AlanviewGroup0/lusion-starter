@@ -1,0 +1,141 @@
+@import "tailwindcss";
+
+@theme {
+  --color-background: var(--color-bg);
+  --color-foreground: var(--color-text);
+  
+  --font-sans: 'Inter', ui-sans-serif, system-ui, sans-serif;
+  --font-mono: 'JetBrains Mono', ui-monospace, monospace;
+}
+
+/* Design system */
+:root {
+  --color-bg: #0a0a0a;
+  --color-surface: #111111;
+  --color-surface-elevated: #1a1a1a;
+  --color-border: #222222;
+  --color-text: #ffffff;
+  --color-text-muted: #888888;
+  --color-text-subtle: #555555;
+  --color-accent: #ff3e00;
+  --color-accent-soft: rgba(255, 62, 0, 0.15);
+  
+  --ease-cinematic: cubic-bezier(0.87, 0.05, 0.02, 0.97);
+  --transition-fast: 150ms;
+  --transition-base: 300ms;
+  --transition-slow: 500ms;
+  
+  --radius-sm: 0.5rem;
+  --radius-md: 0.75rem;
+  --radius-lg: 1rem;
+  --radius-xl: 1.5rem;
+  --radius-full: 9999px;
+  
+  --container-sm: 640px;
+  --container-md: 768px;
+  --container-lg: 1024px;
+  --container-xl: 1280px;
+  --container-2xl: 1536px;
+  
+  --space-1: 0.25rem;
+  --space-2: 0.5rem;
+  --space-3: 0.75rem;
+  --space-4: 1rem;
+  --space-6: 1.5rem;
+  --space-8: 2rem;
+  --space-12: 3rem;
+  --space-16: 4rem;
+  --space-24: 6rem;
+  --space-32: 8rem;
+  
+  --cursor-size: 20px;
+}
+
+/* Global CSS Variables for dynamic theming */
+:root {
+  --color-bg: #0a0a0a;
+  --color-text: #ffffff;
+  --color-accent: #ff3e00;
+}
+
+/* Lenis smooth scroll styles */
+html.lenis,
+html.lenis body {
+  height: auto;
+}
+
+.lenis.lenis-smooth {
+  scroll-behavior: auto !important;
+}
+
+.lenis.lenis-smooth [data-lenis-prevent] {
+  overscroll-behavior: contain;
+}
+
+.lenis.lenis-stopped {
+  overflow: hidden;
+}
+
+.lenis.lenis-scrolling iframe {
+  pointer-events: none;
+}
+
+/* Hide default cursor when custom cursor is active */
+.custom-cursor-active * {
+  cursor: none !important;
+}
+
+/* Smooth image loading */
+img {
+  transition: opacity 0.3s ease;
+}
+
+/* Selection color */
+::selection {
+  background: var(--color-accent);
+  color: #fff;
+}
+
+/* Cinematic easing from Really Sick Animations */
+/* Starts fast, holds, snaps to finish — perfect for reveals */
+
+/* Slow pulse for gradient backgrounds */
+@keyframes pulse-slow {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.7; }
+}
+
+.animate-pulse-slow {
+  animation: pulse-slow 8s ease-in-out infinite;
+}
+
+/* Animation utilities */
+.animate-cinematic {
+  animation-timing-function: var(--ease-cinematic);
+}
+
+/* Staggered children — add data-stagger to parent */
+[data-stagger] > *:nth-child(1) { animation-delay: 0.1s; }
+[data-stagger] > *:nth-child(2) { animation-delay: 0.2s; }
+[data-stagger] > *:nth-child(3) { animation-delay: 0.3s; }
+[data-stagger] > *:nth-child(4) { animation-delay: 0.4s; }
+[data-stagger] > *:nth-child(5) { animation-delay: 0.5s; }
+[data-stagger] > *:nth-child(6) { animation-delay: 0.6s; }
+
+/* Custom scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--color-bg);
+}
+
+::-webkit-scrollbar-thumb {
+  background: rgba(255, 255, 255, 0.2);
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: rgba(255, 255, 255, 0.3);
+}
